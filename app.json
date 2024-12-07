@@ -1,13 +1,13 @@
 {
-    "name": "Kunal",
+    "name": "Rowdy",
     "description": "Kunal Txt Bot For Telegram",
-    "logo": "https://telegra.ph/file/df5f23cd48e6043828e0e.jpg",
+    "logo": "https://files.catbox.moe/hyn894.jpg",
     "keywords": [
         "text-video",
         "video-extract",
         "pyrogram"
     ],
-    "repository": "https://github.com/rihankumar/txt_leech",
+    "repository": "https://github.com/HARRY0133/Kunalrepo",
     "success_url": "https://t.me/paidcoursefreemeha",
     "stack": "container",
     "env": {

@@ -58,7 +58,7 @@ async def run_bot(bot: Client, m: Message):
 
 @bot.on_message(filters.command(["start"]))
 async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text("Hello, **ROWDY**! 🌟\n\n I am your friendly bot 🤖, here to help you download links from your **.txt** file and upload them to Telegram. To get started, simply send me the /sky command and follow a few easy steps.")
+    editable = await m.reply_text("Hello, **SKY**! 🌟\n\n I am your friendly bot 🤖, here to help you download links from your **.txt** file and upload them to Telegram. To get started, simply send me the /sky command and follow a few easy steps.")
 
 
 @bot.on_message(filters.command("stop"))
@@ -69,7 +69,7 @@ async def restart_handler(_, m):
 
 #-------------TXT Uploader Commands ---------------
 
-@bot.on_message(filters.command(["ROWDY"]))
+@bot.on_message(filters.command(["sky"]))
 async def account_login(bot: Client, m: Message):
     editable = await m.reply_text(f"**Hey Send txt file**")
     input: Message = await bot.listen(editable.chat.id)
@@ -77,7 +77,7 @@ async def account_login(bot: Client, m: Message):
         x = await input.download()
         await input.delete(True)
         file_name, ext = os.path.splitext(os.path.basename(x))
-        credit = f"ROWDY❤️"
+        credit = f"SKY❤️"
 
         path = f"./downloads/{m.chat.id}"
 

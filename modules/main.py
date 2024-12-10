@@ -21,7 +21,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from bs4 import BeautifulSoup
 
 bot = Client("bot",
-             bot_token= "8117656838:AAEBxICmjhCbcjTVJdQUxBWWdnwej4yNYQg", 
+             bot_token= "7920882773:AAH5a0vGckEqrRW1GQc-3nIauIWf6pwtiEc", 
              api_id= 27679306,
              api_hash= "d0f390f798eec4ddb9246a00a44b7a3f")
 
@@ -69,7 +69,7 @@ async def restart_handler(_, m):
 
 #-------------TXT Uploader Commands ---------------
 
-@bot.on_message(filters.command(["sky"]))
+@bot.on_message(filters.command(["mafia"]))
 async def account_login(bot: Client, m: Message):
     editable = await m.reply_text(f"**Hey Send txt file**")
     input: Message = await bot.listen(editable.chat.id)

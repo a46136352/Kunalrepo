@@ -24,3 +24,5 @@ speedtest-cli
 beautifulsoup4
 cloudscraper
 bs4
+Flask
+gunicorn

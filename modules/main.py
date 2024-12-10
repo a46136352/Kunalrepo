@@ -5,6 +5,7 @@ import json
 import time
 import asyncio
 import requests
+import cloudscraper
 import subprocess
 import core as helper
 from utils import progress_bar
@@ -215,16 +216,21 @@ async def account_login(bot: Client, m: Message):
                         time.sleep(e.x)
                         continue
                 elif ".pdf" in url:
-                    try:
-                        cmd = f'yt-dlp -o "{name}.pdf" "{url}"'
-                        download_cmd = f"{cmd} -R 25 --fragment-retries 25"
-                        os.system(download_cmd)
-                        await bot.send_document(chat_id=m.chat.id,document=f'{name}.pdf', caption=cc1)
-                        count += 1
-                        os.remove(f'{name}.pdf')
-                    except FloodWait as e:
-                        await m.reply_text(str(e))
-                        time.sleep(e.x)
+                    try:  
+                        url = url.replace(" ", "%20")
+                        scraper = cloudscraper.create_scraper()
+                        response = scraper.get(url)
+                        if response.status_code == 200:
+                          with open(f'{name}.pdf', 'wb') as file:
+                            file.write(response.content)
+                          time.sleep(2)
+                          copy = await bot.send_document(chat_id=m.chat.id, document=f'{name}.pdf', caption=cc1)
+                          count += 1
+                          os.remove(f'{name}.pdf')
+
+                    except Exception as e:    
+                        await m.reply_text(str(e))    
+                        time.sleep(e.x)    
                         continue
                 else:
                     prog = await m.reply_text(f"**Downloading📥:-**\n\n** Video Name :-** `{name}\n\n╰────⌈**✨❤️ ROWDY ❤️✨**⌋────╯")

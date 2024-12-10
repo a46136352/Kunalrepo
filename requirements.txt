@@ -22,4 +22,5 @@ pytz
 umongo
 speedtest-cli
 beautifulsoup4
+cloudscraper
 bs4
